@@ -1,0 +1,34 @@
+"""This program rolls a pair of dice and asks the user to guess the sum. If the user's guess is greater or equal to the sum of the dice roll then the user wins, otherwise the computer wins."""
+
+from random import randint
+from time import sleep
+def get_user_guess():
+  guess = int(raw_input("Guess a number:"))
+  return guess
+
+def roll_dice(number_of_sides):
+  first_roll = randint(1,number_of_sides)
+  second_roll = randint(1,number_of_sides)
+  max_val = number_of_sides*2
+  print "The maximum possible value of the dice is: %d." %(max_val)
+  guess = get_user_guess()
+  if guess > max_val:
+  	print "Value is too high."
+  else:
+    print "Rolling..."
+    sleep (2)
+    print "The first dice is... %d." %(first_roll)
+    sleep(1)
+    print "The second dice is... %d." %(second_roll)
+    total_roll = first_roll + second_roll
+    print "The total is %d." %(total_roll)
+    print "Result..."
+    sleep (1)
+    if guess >= total_roll:
+    	print "You won!"
+    else:
+      print "You lost :("
+      
+
+    
+roll_dice(6)
